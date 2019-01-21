@@ -209,7 +209,10 @@ export default class TestRunner extends EventEmitter {
       persistent: true,
       followSymlinks: false,
       ignorePermissionErrors: true,
-      ignored: watchOptions.ignored,
+      ignored: [
+        /\.git/,
+        /node_modules/
+      ],
       usePolling: watchOptions.poll ? true : undefined,
       interval: pollingInterval,
       binaryInterval: pollingInterval,
